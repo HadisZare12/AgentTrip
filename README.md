@@ -45,10 +45,7 @@ AgentTrip/
 │   ├── js/app.js              # frontend logic + rendering
 │   └── css/style.css
 ├── templates/
-│   └── index.html
-└── docs/
-    ├── screenshot-app.png
-    └── architecture.png
+    └── index.html
 ```
 
 ## Setup
@@ -92,6 +89,6 @@ The supervisor detects that only the flight and hotel agents are needed, skips w
 
 ## License
 
-MIT (or update to whatever license you're using)
+MIT 
 
 
