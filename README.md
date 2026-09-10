@@ -4,7 +4,7 @@ AgentTrip plans a full trip end-to-end by handing the work to a team of speciali
 
 > Plan a trip. Watch the agents work.
 
-![App screenshot](docs/screenshot-app.png)
+![App screenshot](static/img/agent.png)
 
 ## How it works
 
@@ -19,7 +19,7 @@ AgentTrip plans a full trip end-to-end by handing the work to a team of speciali
 5. **Human-in-the-loop review** — the draft itinerary is presented for approval. You can approve it as-is, or leave feedback and have it redrafted and re-presented until you're satisfied.
 6. **Trip Agent** assembles the final, polished plan once approved, ready to download.
 
-![Architecture diagram](docs/architecture.png)
+![Architecture diagram](static/img/Tripmate.png)
 
 ## Tech stack
 
