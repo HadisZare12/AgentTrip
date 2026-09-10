@@ -22,7 +22,7 @@
       <div class="hero-copy">
         <div class="eyebrow">AGENTTRIP &middot; MULTI&#8209;AGENT TRIP PLANNER</div>
         <h1>Plan a trip.<br><span class="accent-text">Watch the agents work.</span></h1>
-        <p class="lede">Four specialist agents research flights, hotels, and a day-by-day itinerary in parallel, then hand off to a trip agent that assembles your complete plan.</p>
+        <p class="lede">Specialist agents research flights, hotels, weather, and budget in sequence, draft an itinerary for your review, then hand off to a trip agent that assembles your complete plan.</p>
 
         <form id="trip-form" class="glass-card">
           <label for="query">Where to?</label>
@@ -63,6 +63,7 @@
       </div>
     </div>
   </section>
+
   <!-- PIPELINE -->
   <section class="pipeline" id="pipeline" hidden>
     <div class="pipeline-inner">
@@ -74,6 +75,16 @@
       <div class="step" data-step="hotel">
         <div class="node"><span class="node-dot"></span></div>
         <div class="step-label">Hotel Agent</div>
+      </div>
+      <div class="link"></div>
+      <div class="step" data-step="weather">
+        <div class="node"><span class="node-dot"></span></div>
+        <div class="step-label">Weather Agent</div>
+      </div>
+      <div class="link"></div>
+      <div class="step" data-step="budget">
+        <div class="node"><span class="node-dot"></span></div>
+        <div class="step-label">Budget Agent</div>
       </div>
       <div class="link"></div>
       <div class="step" data-step="itinerary">
@@ -88,6 +99,18 @@
     </div>
   </section>
 
+  <!-- GUARDRAIL VERDICT -->
+  <section class="result-card" id="card-guardrail" hidden>
+    <div class="card-head">
+      <div class="card-head-left">
+        <span class="card-tag" id="guardrail-tag">CHECKING</span>
+        <h2 id="guardrail-title">Reviewing your request</h2>
+      </div>
+      <div class="guardrail-icon" id="guardrail-icon"></div>
+    </div>
+    <div class="final-content" id="guardrail-content"></div>
+  </section>
+
   <!-- ERROR -->
   <section class="error-box" id="error-box" hidden>
     <div class="error-title">Something went off course</div>
@@ -96,6 +119,62 @@
 
   <!-- RESULTS -->
   <section class="results" id="results" hidden>
+
+    <article class="result-card" id="card-flight">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">FLIGHTS</span>
+          <h2>Flight Options</h2>
+        </div>
+      </div>
+      <div class="final-content md" id="flight-content"></div>
+    </article>
+
+    <article class="result-card" id="card-hotel">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">HOTELS</span>
+          <h2>Hotel Options</h2>
+        </div>
+      </div>
+      <div class="final-content md" id="hotel-content"></div>
+    </article>
+
+    <article class="result-card" id="card-weather">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">WEATHER</span>
+          <h2>Weather at Destination</h2>
+        </div>
+      </div>
+      <div class="final-content" id="weather-content"></div>
+    </article>
+
+    <article class="result-card" id="card-budget">
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">BUDGET</span>
+          <h2>Estimated Budget</h2>
+        </div>
+      </div>
+      <div class="final-content md" id="budget-content"></div>
+    </article>
+
+    <article class="result-card hitl" id="card-approval" hidden>
+      <div class="card-head">
+        <div class="card-head-left">
+          <span class="card-tag">HUMAN REVIEW</span>
+          <h2>Draft itinerary — needs your approval</h2>
+        </div>
+      </div>
+      <div class="final-content md" id="approval-content"></div>
+      <label for="feedback-input" class="hitl-label">Want changes? Describe them below, or just approve as-is.</label>
+      <textarea id="feedback-input" rows="2" placeholder="e.g. swap the museum for a park on day 2"></textarea>
+      <div class="form-row hitl-actions">
+        <button type="button" id="approve-btn">✓ Approve &amp; finalize</button>
+        <button type="button" id="revise-btn">Request changes</button>
+      </div>
+    </article>
 
     <article class="result-card final" id="card-final">
       <div class="card-head">
@@ -124,6 +203,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="/static/js/scene.js"></script>
 <script src="/static/js/hero-globe.js"></script>
 <script src="/static/js/hero-lottie.js"></script>
